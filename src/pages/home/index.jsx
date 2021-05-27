@@ -54,10 +54,10 @@ function Home() {
                                     <span className={style.s}>100ETH</span>
                                 </div>
                                 <div className={style.desc}>Owner of Crypto Universe Core rule maker，A symbol of dignity</div>
-                                <div className={cn(style.operaBtn, 'flex')}>
+                                {/* <div className={cn(style.operaBtn, 'flex')}>
                                     <button onClick={goTrans} className='flex-1'>Buy now</button>
                                     <button onClick={goCardDetail} className={cn(style.w, 'flex-1')}>Details</button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className={cn(style.cardItem, style.cardMiddle, 'flex flex-1')}>
@@ -72,10 +72,10 @@ function Home() {
                                     <span className={style.s}>120ETH</span>
                                 </div>
                                 <div className={style.desc}>BUIDL is the blockchain circle Idealists who focus on Construction of the underlying  technology and framework</div>
-                                <div className={cn(style.operaBtn, 'flex')}>
+                                {/* <div className={cn(style.operaBtn, 'flex')}>
                                     <button onClick={goTrans} className='flex-1'>Buy now</button>
                                     <button onClick={goCardDetail} className={cn(style.w, 'flex-1')}>Details</button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className={cn(style.cardItem, 'flex flex-1')}>
@@ -90,10 +90,10 @@ function Home() {
                                     <span className={style.s}>80ETH</span>
                                 </div>
                                 <div className={style.desc}>Giant whale is the hidden finance of the entire blockchain ecology Giant crocodiles, they have ...</div>
-                                <div className={cn(style.operaBtn, 'flex')}>
+                                {/* <div className={cn(style.operaBtn, 'flex')}>
                                     <button onClick={goTrans} className='flex-1'>Buy now</button>
                                     <button onClick={goCardDetail} className={cn(style.w, 'flex-1')}>Details</button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

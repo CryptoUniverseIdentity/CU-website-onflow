@@ -2,6 +2,9 @@ import sty from './index.module.scss';
 import cn from 'classnames';
 import cardImg from '../../imgs/card-2.png';
 import { useState } from 'react';
+import cardImgOne from '../../imgs/card-4.jpg';
+import cardImgTwo from '../../imgs/card-3.jpg';
+import cardImgThree from '../../imgs/card-5.jpg';
 function My() {
     const [activeTab, setActiveTab] = useState(1);
     return (
@@ -15,28 +18,21 @@ function My() {
                 </div>
                 <div className={cn(sty.cardBox, 'flex flex-wrap')}>
                     <div className={sty.card}>
-                        <img className={sty.cardImg} src={cardImg} alt="" />
+                        <img className={sty.cardImg} src={cardImgOne} alt="" />
                         <div className={cn(sty.operaBox, 'flex-m')}>
                             <button className="flex-1">Active</button>
                             <button className={cn(sty.s, 'flex-1')}>Putaway</button>
                         </div>
                     </div>
                     <div className={sty.card}>
-                        <img className={sty.cardImg} src={cardImg} alt="" />
+                        <img className={sty.cardImg} src={cardImgTwo} alt="" />
                         <div className={cn(sty.operaBox, 'flex-m')}>
                             <button className="flex-1">Active</button>
                             <button className={cn(sty.s, 'flex-1')}>Putaway</button>
                         </div>
                     </div>
                     <div className={sty.card}>
-                        <img className={sty.cardImg} src={cardImg} alt="" />
-                        <div className={cn(sty.operaBox, 'flex-m')}>
-                            <button className="flex-1">Active</button>
-                            <button className={cn(sty.s, 'flex-1')}>Putaway</button>
-                        </div>
-                    </div>
-                    <div className={sty.card}>
-                        <img className={sty.cardImg} src={cardImg} alt="" />
+                        <img className={sty.cardImg} src={cardImgThree} alt="" />
                         <div className={cn(sty.operaBox, 'flex-m')}>
                             <button className="flex-1">Active</button>
                             <button className={cn(sty.s, 'flex-1')}>Putaway</button>

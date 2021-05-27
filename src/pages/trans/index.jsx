@@ -8,6 +8,10 @@ import { SUPPORT_NET, CHAIN_ID } from '../../constant';
 import { abi, addr, tokenUrl } from '../../constant/contract';
 import { getOrder } from '../../api';
 import { OrderSide } from 'opensea-js/lib/types';
+import cardImgOne from '../../imgs/card-4.jpg';
+import cardImgTwo from '../../imgs/card-3.jpg';
+import cardImgThree from '../../imgs/card-5.jpg';
+import cardImgFour from '../../imgs/card-6.jpg';
 function Trans() {
     const web3 = useWeb3React();
     const { account, library } = useWeb3React();
@@ -45,7 +49,7 @@ function Trans() {
                             <div className={sty.o}>king </div>
                         </div>
                     </div>
-                    <img className={sty.card} src={cardImg} alt="" />
+                    <img className={sty.card} src={cardImgOne} alt="" />
                     <div className={cn(sty.price, 'flex-m')}>
                         <div className='flex-1'>
                             <span className={sty.s}>price：</span>
@@ -70,7 +74,7 @@ function Trans() {
                             <div className={sty.o}>king </div>
                         </div>
                     </div>
-                    <img className={sty.card} src={cardImg} alt="" />
+                    <img className={sty.card} src={cardImgTwo} alt="" />
                     <div className={cn(sty.price, 'flex-m')}>
                         <div className='flex-1'>
                             <span className={sty.s}>price：</span>
@@ -95,7 +99,7 @@ function Trans() {
                             <div className={sty.o}>king </div>
                         </div>
                     </div>
-                    <img className={sty.card} src={cardImg} alt="" />
+                    <img className={sty.card} src={cardImgThree} alt="" />
                     <div className={cn(sty.price, 'flex-m')}>
                         <div className='flex-1'>
                             <span className={sty.s}>price：</span>
@@ -120,7 +124,7 @@ function Trans() {
                             <div className={sty.o}>king </div>
                         </div>
                     </div>
-                    <img className={sty.card} src={cardImg} alt="" />
+                    <img className={sty.card} src={cardImgFour} alt="" />
                     <div className={cn(sty.price, 'flex-m')}>
                         <div className='flex-1'>
                             <span className={sty.s}>price：</span>
