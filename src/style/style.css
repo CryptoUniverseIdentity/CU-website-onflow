@@ -1,0 +1,94 @@
+/* flex */
+.flex {
+    display: -webkit-box; 
+    display: -moz-box;  
+    display: -webkit-flex; 
+    display: -moz-flex; 
+    display: -ms-flexbox; 
+    display: flex;
+}
+
+.flex-1 {
+    width: 0;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;    
+}
+
+.flex-m {
+    display: -webkit-box; 
+    display: -moz-box;  
+    display: -webkit-flex; 
+    display: -moz-flex; 
+    display: -ms-flexbox; 
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.flex-c {
+    display: -webkit-box; 
+    display: -moz-box;  
+    display: -webkit-flex; 
+    display: -moz-flex; 
+    display: -ms-flexbox; 
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.flex-r {
+    display: -webkit-box; 
+    display: -moz-box;  
+    display: -webkit-flex; 
+    display: -moz-flex; 
+    display: -ms-flexbox; 
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+.flex-wrap {
+    -webkit-box-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+    
+
+/* float */
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* text-align */
+
+.tl {
+    text-align: left;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tr {
+    text-align: right;
+}

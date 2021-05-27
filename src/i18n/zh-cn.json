@@ -1,0 +1,20 @@
+{
+   
+    "header": {
+        "home": "首页",
+        "draw": "抽取",
+        "trans": "交易",
+        "my": "我的身份"
+    },
+    "home": {
+        "title": "欢迎来到",
+        "keyword_2": "DID身份",
+        "keyword_3": "治理",
+        "keyword_4": "游戏",
+        "keyword_5": "收藏",
+        "keyword_6": "加密宇宙基础设施",
+        "start": "开始"
+
+    }
+   
+}

@@ -1,0 +1,239 @@
+@keyframes :global(spin) {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+.draw {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: url("../../imgs/draw-bg.png") no-repeat;
+    background-size: cover;
+    .boxWrap {
+        width: 1000px;
+        margin: 0 auto;
+        padding-top: 100px;
+        .left {
+            padding: 0 80px;
+            width: 50%;
+            position: relative;
+            // img {
+            //     width: 100%;
+            //     height: auto;
+            // }
+            :global {
+                .cubeOuter {
+                    perspective: 800px;
+                    perspective-origin: 50% 100px;
+                    .cube {
+                        position: relative;
+                        margin: 50px auto 0;
+                        width: 200px;
+                        transform-style: preserve-3d;
+                        animation: spin 4s infinite linear;
+                        transition: all 1s linear;
+                        // perspective: 300px;
+                        transform-style: preserve-3d;
+                        b {
+                            position: absolute;
+                            width: 200px;
+                            height: 200px;
+                            display: block;
+                            background: url("../../imgs/box-front.png") no-repeat;
+                            background-size: cover;
+                            transition: all 1s linear;
+                        }
+                        b.back {
+                            transform: translateZ(-100px) rotateY(180deg);
+                        }
+                        b.right {
+                            background: url("../../imgs/box-back.png") no-repeat;
+                            background-size: cover;
+                            transform: rotateY(-270deg) translateX(100px);
+                            transform-origin: top right;
+                        }
+                        b.left {
+                            background: url("../../imgs/box-back.png") no-repeat;
+                            background-size: cover;
+                            transform: rotateY(270deg) translateX(-100px);
+                            transform-origin: center left;
+                        }
+                        b.top {
+                            background: url("../../imgs/box-back.png") no-repeat;
+                            background-size: cover;
+                            transform: rotateX(-90deg) translateY(-100px);
+                            transform-origin: top center;
+                        }
+                        b.bottom {
+                            transform: rotateX(90deg) translateY(100px);
+                            transform-origin: bottom center;
+                        }
+                        b.front {
+                            transform: translateZ(100px);
+                        }
+
+                        /* inner cube */
+                        i {
+                            position: absolute;
+                            top: 50px;
+                            left: 50px;
+                            width: 100px;
+                            height: 100px;
+                            display: block;
+                            // background: url(img/cube.png);
+                            transition: all 1s linear;
+                        }
+                        i.front {
+                            transform: translateZ(50px);
+                        }
+                        i.back {
+                            transform: translateZ(-50px) rotateY(180deg);
+                        }
+                        i.bottom {
+                            transform: rotateX(-90deg) translateY(50px);
+                            transform-origin: left bottom;
+                        }
+                        i.left {
+                            transform: rotateY(270deg) translateX(-50px);
+                            transform-origin: center left;
+                        }
+                        i.right {
+                            transform: rotateY(-270deg) translateX(50px);
+                            transform-origin: top right;
+                        }
+                        i.top {
+                            transform: rotateX(-270deg) translateY(-50px);
+                            transform-origin: left top;
+                        }
+                        &.open {
+                            top: 150px;
+                        }
+                        &.open b.top {
+                            transform: translateZ(100px) rotateX(-210deg);
+                            transform-origin: top center;
+                        }
+                        // &:hover i {
+                        //     top: -200px;
+                        // }
+                    }
+                }
+            }
+        }
+        .right {
+            width: 50%;
+            color: #fff;
+            padding: 0 50px;
+            .top {
+                background-color: #2a2634;
+                border-radius: 10px;
+                padding: 15px 30px 30px;
+                .title {
+                    font-weight: bold;
+                    font-size: 24px;
+                    border-bottom: 1px solid #515155;
+                    line-height: 50px;
+                }
+                .price {
+                    border-bottom: 1px solid #515155;
+                    color: #dce1ea;
+                    font-size: 18px;
+                    padding: 15px 0;
+                    .s {
+                        font-weight: 600;
+                        font-size: 36px;
+                        color: #fdff00;
+                    }
+                }
+                .amount {
+                    border-bottom: 1px solid #515155;
+                    color: #dce1ea;
+                    font-size: 18px;
+                    padding: 15px 0;
+                }
+                .btnGetStarted {
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 48px;
+                    width: 100%;
+                    border-radius: 8px;
+                    color: #000;
+                    background: #fdff00;
+                    margin-top: 20px;
+                }
+            }
+            .bottom {
+                background-color: #2a2634;
+                border-radius: 10px;
+                padding: 15px 30px 30px;
+                margin-top: 15px;
+                .title {
+                    font-weight: 600;
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                }
+                .desc {
+                    color: #dce1ea;
+                    font-size: 16px;
+                }
+                .more {
+                    color: #fdff00;
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .draw {
+        .boxWrap {
+            width: 100%;
+            padding-top: 50px;
+            display: block;
+            padding-bottom: 50px;
+            .left {
+                padding: 0 15px;
+                width: 100%;
+            }
+            .right {
+                width: 100%;
+                padding: 0 15px;
+                margin-top: 30px;
+                .top {
+                    .title {
+                        font-size: 20px;
+                    }
+                    .price {
+                        font-size: 16px;
+                        .s {
+                            font-size: 24px;
+                        }
+                    }
+                    .amount {
+                        font-size: 16px;
+                    }
+                    .btnGetStarted {
+                        font-family: "Montserrat", sans-serif;
+                        font-weight: 400;
+                        font-size: 18px;
+                        line-height: 48px;
+                        width: 100%;
+                        border-radius: 8px;
+                        color: #000;
+                        background: #fdff00;
+                        margin-top: 20px;
+                    }
+                }
+                .bottom {
+                    .title {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

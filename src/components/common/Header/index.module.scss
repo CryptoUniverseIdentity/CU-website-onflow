@@ -1,0 +1,107 @@
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: #0e071f;
+    padding: 0 60px;
+    height: 60px;
+    line-height: 60px;
+    top: 0;
+    z-index: 99;
+    .logo {
+        width: 120px;
+        display: block;
+    }
+    .outer {
+        .menuItem {
+            margin: 0 20px;
+            padding: 0 10px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 16px;
+            font-weight: 500;
+            height: 60px;
+            border-bottom: 3px solid transparent;
+            box-sizing: border-box;
+            &:hover {
+                text-decoration: none;
+                color: #00F5EB;
+            }
+            &.active {
+                color: #00F5EB;
+                border-color: #00F5EB;
+            }
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+            a {
+                padding: 0;
+                font-size: 14px;
+                text-align: center;
+                line-height: 40px;
+            }
+        }
+    }
+    .mobileMenu {
+        display: none;
+    }
+}
+
+@media (max-width: 960px) {
+    .header {
+        padding: 0 15px;
+        .logo {
+            width: 100px;
+        }
+        .outer {
+            display: none;
+        }
+        .mobileMenu {
+            display: block;
+            .menuIcon {
+                width: 25px;
+            }
+            .menuBox {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #fff;
+                z-index: 999;
+                padding: 10px 25px;
+                transform: translateX(100%);
+                transition: transform .15s linear;
+                .mHead {
+                    border-bottom: 1px solid #707070;
+                    .mTitle {
+                        font-size: 20px;
+                    }
+                    .mClose {
+                        img {
+                            width: 28px;
+                        }
+                    }
+                }
+                .mList {
+                    .mItem {
+                        font-size: 18px;
+                        line-height: 40px;
+                        a {
+                            color: #333;
+                            display: block;
+                        }
+                        .subMenu {
+                            color: #707070;
+                            font-size: 16px;
+                            line-height: 35px;
+                            padding-left: 15px;
+                        }
+                    }
+                }
+            }
+            .active {
+                transform: translateX(0);
+            }
+        }
+    }
+}

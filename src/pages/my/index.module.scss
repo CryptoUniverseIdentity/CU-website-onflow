@@ -1,0 +1,130 @@
+.my {
+    color: #fff;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: url('../../imgs/my-bg.png') no-repeat #000;
+    background-position: left top;
+    background-size: 100%;
+    .outer {
+        width: 1200px;
+        margin: 0 auto;
+        padding: 50px 0;
+        .title {
+            font-size: 38px;
+            font-weight: bold;
+        }
+        .desc {
+            font-size: 14px;
+        }
+
+        .tabs {
+            margin-top: 30px;
+            background-color: #373509;
+            padding: 3px;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            width: 500px;
+            .tab {
+                width: 50%;
+                font-size: 20px;
+                color: #fdff00;
+                line-height: 40px;
+                cursor: pointer;
+                background: transparent;
+            }
+            .active {
+                transition: background .15s linear;
+                background: linear-gradient(103.26deg, #FDFF00 0.63%, #00F5EB 93.25%);
+                color: #000000;
+                border-radius: 10px;
+            }
+        }
+        .cardBox {
+            margin-top: 50px;
+            margin: 50px -1% 0;
+            .card {
+                padding: 20px;
+                border-radius: 15px;
+                background-color: #000;
+                border: 1px solid#00F5EB;
+                width: 23%;
+                margin: 0 1% 30px;
+            }
+            .cardImg {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+            .operaBox {
+                margin-top: 20px;
+                button {
+                    font-size: 16px;
+                    color: #00F5EB;
+                    border: 2px solid #00F5EB;
+                    border-radius: 6px;
+                    line-height: 40px;
+                }
+                .s {
+                    border-color: transparent;
+                    background: linear-gradient(103.26deg, #FDFF00 0.63%, #00F5EB 93.25%);
+                    color: #000;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .my {
+        .outer {
+            width: 100%;
+            padding: 30px 15px;
+            .title {
+                font-size: 24px;
+            }
+            .desc {
+                font-size: 13px;
+            }
+    
+            .tabs {
+                margin-top: 30px;
+                width: 100%;
+                .tab {
+                    font-size: 16px;
+                }
+            }
+            .cardBox {
+                margin-top: 30px;
+                margin: 30px 0 0;
+                display: block;
+                .card {
+                    padding: 15px;
+                    width: 100%;
+                    margin: 0 0 30px;
+                }
+                .cardImg {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                }
+                .operaBox {
+                    margin-top: 20px;
+                    button {
+                        font-size: 16px;
+                        color: #1750FF;
+                        border: 2px solid #1750FF;
+                        border-radius: 6px;
+                        line-height: 40px;
+                    }
+                    .s {
+                        background-color: #1750FF;
+                        color: #fff;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
