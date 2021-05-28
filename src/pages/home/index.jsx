@@ -5,6 +5,7 @@ import cardImgThree from '../../imgs/card-5.jpg';
 import cn from 'classnames';
 import { useHistory } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import Footer from '../../components/common/Footer';
 
 function Home() {
     let { t } = useTranslation();
@@ -103,6 +104,7 @@ function Home() {
                 <div className={style.div1}></div>
                 <div className={style.div2}></div>
             </div> */}
+            <Footer></Footer>
         </div>
     );
 }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import sty from './index.module.scss';
 import cn from 'classnames';
-import boxImg from '../../imgs/box.png';
 import { abi, addr, tokenUrl } from '../../constant/contract';
 import { useWeb3React } from '@web3-react/core';
 import ConnectModal from '../../components/common/ConnectModal';
@@ -30,10 +29,9 @@ function Draw() {
             const gas = await contract.estimateGas.createCollectible(tokenUrl, { from: account });
             const safeGas = calculateGasMargin(gas);
             contract.createCollectible(tokenUrl, { from: account, gasLimit: safeGas }).then(res => {
-                console.log(1111, res);
                 setOpenBox(true);
-                dispatch({ type: 'ADD_BLIND_TRANS', payload: {hash: res.hash} });
-                alert('开启成功，请稍后到我的钱包查看');
+                dispatch({ type: 'ADD_BLIND_TRANS', payload: {hash: res.hash, status: 'pending'} });
+                
                 // library.getTransaction(res.hash).then(trans => {
                 //     console.log('trans', trans);
                 // })
@@ -95,7 +93,7 @@ function Draw() {
                 </div>
                 <div className={sty.right}>
                     <div className={sty.top}>
-                        <div className={sty.title}>CU BOX</div>
+                        <div className={sty.title}>CU GACHA</div>
                         <div className={cn(sty.price, 'flex-m')}>
                             <div className={cn('flex-1')}>Price</div>
                             <div className={sty.s}>0.1ETH</div>

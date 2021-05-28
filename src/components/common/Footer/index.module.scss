@@ -1,11 +1,91 @@
 .footer {
     background-color: #000;
-    padding:  0 100px;
-    height: 60px;
-    line-height: 60px;
-    .contact {
+    padding: 50px 100px;
+    color: #fff;
+    .title {
+        font-weight: bold;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    .desc {
+        font-size: 16px;
+    }
+    .email {
+        margin-top: 30px;
+        .input {
+            background-color: #fff;
+            width: 250px;
+            height: 50px;
+            border-radius: 6px;
+        }
+        .sendBtn {
+            background: linear-gradient(94.79deg, #fdff00 6.87%, #00f5eb 91.21%);
+            border-radius: 6px;
+            line-height: 50px;
+            padding: 0 25px;
+            margin-left: 15px;
+        }
+    }
+    .info {
+        margin-top: 30px;
+    }
+    .logoBox {
         img {
+            width: 120px;
+        }
+    }
+    .contact {
+        margin-top: 30px;
+        img {
+            width: auto;
+            height: 30px;
             margin: 0 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .footer {
+        padding: 30px 15px;
+        .title {
+            font-size: 16px;
+        }
+        .desc {
+            font-size: 13px;
+        }
+        .email {
+            margin-top: 15px;
+            .input {
+                background-color: #fff;
+                width: 250px;
+                height: 50px;
+                border-radius: 6px;
+            }
+            .sendBtn {
+                background: linear-gradient(94.79deg, #fdff00 6.87%, #00f5eb 91.21%);
+                border-radius: 6px;
+                line-height: 50px;
+                padding: 0 25px;
+                margin-left: 15px;
+            }
+        }
+        .info {
+            margin-top: 30px;
+        }
+        .logoBox {
+            img {
+                width: 120px;
+            }
+        }
+        .contact {
+            margin-top: 30px;
+            img {
+                width: auto;
+                height: 30px;
+                margin: 0 10px;
+                cursor: pointer;
+            }
         }
     }
 }

@@ -31,6 +31,11 @@ button {
     outline: none;
 }
 
+input {
+    outline: none;
+    border: none;
+}
+
 a {
     text-decoration: none;
 }

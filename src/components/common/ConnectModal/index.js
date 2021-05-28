@@ -3,7 +3,7 @@ import { WALLET_LIST } from '../../../utils/wallet';
 import { useWeb3React } from '@web3-react/core';
 import sty from './index.module.scss';
 import cn from 'classnames';
-import wconnectIcon from '../../../imgs/walletconnect-icon.svg';
+import walletIcon from '../../../imgs/wallet';
 
 function ConnectModal({visible, onClose}) {
     const { activate } = useWeb3React();
@@ -27,7 +27,7 @@ function ConnectModal({visible, onClose}) {
                     WALLET_LIST.map(e => (
                         <div className={cn(sty.option, 'flex-m')} key={e.name} onClick={() => tryConnect(e.connector)}>
                             <div className={cn(sty.name, 'flex-1')}>{e.name}</div>
-                            <img className={sty.walletLogo} src={wconnectIcon} alt="" />
+                            <img className={sty.walletLogo} src={walletIcon[e.icon]} alt="" />
                         </div>
                     ))
                 }

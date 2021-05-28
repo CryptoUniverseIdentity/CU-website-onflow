@@ -35,7 +35,7 @@ function Trans() {
 
     return (
         <div className={sty.trans}>
-            <div className={sty.title}>Marketplace</div>
+            <div className={sty.title}>MARKET</div>
             <div className={cn(sty.box, 'flex flex-wrap')}>
                 <div onClick={buyCard} className={sty.item}>
                     <div className={cn(sty.header, 'flex-m')}>

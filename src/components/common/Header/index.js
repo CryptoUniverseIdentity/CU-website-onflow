@@ -103,7 +103,7 @@ function Header() {
                             <Link className={cn(sty.mName)} to="/trans">{t('header.trans')}</Link>
                         </div>
                         <div className={sty.mItem}>
-                            <Link className={cn(sty.mName)} to="/my">我的身份</Link>
+                            <Link className={cn(sty.mName)} to="/my">{t('header.my')}</Link>
                         </div>
                         {/* <div className={sty.mItem}>
                             <div>{i18n.language === 'zh' ? '选择语言' : 'Multiple Language'}</div>

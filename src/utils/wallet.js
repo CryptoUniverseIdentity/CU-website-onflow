@@ -30,7 +30,7 @@ const walletlink = new WalletLinkConnector({
 })
 
 export const WALLET_LIST = [
-    {name: 'Metamask', connector: injected},
-    {name: 'Walletconnect', connector: walletconnect},
-    {name: 'Walletlink', connector: walletlink}
+    {name: 'Metamask', connector: injected, icon: 'metamask'},
+    {name: 'Walletconnect', connector: walletconnect, icon: 'wconnect'},
+    {name: 'Walletlink', connector: walletlink, icon: 'walletlink'}
 ]
