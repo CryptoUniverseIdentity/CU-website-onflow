@@ -6,3 +6,9 @@ export function getOrder(params) {
         params: params
     })
 }
+
+export function getNftById(url) {
+    return axios.request({
+        url: 'https://rinkeby-api.opensea.io/api/v1/asset' + url
+    })
+}

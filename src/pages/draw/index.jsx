@@ -1,47 +1,66 @@
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { useWeb3React } from '@web3-react/core';
+
+import ConnectModal from '../../components/common/ConnectModal';
+import DrawWait from '../../components/draw/DrawWait';
+import DrawSuc from '../../components/draw/DrawSuc';
+
 import sty from './index.module.scss';
 import cn from 'classnames';
+
 import { abi, addr, tokenUrl } from '../../constant/contract';
-import { useWeb3React } from '@web3-react/core';
-import ConnectModal from '../../components/common/ConnectModal';
 import { SUPPORT_NET, CHAIN_ID } from '../../constant';
 import { getConstract, calculateGasMargin } from '../../utils/index';
-import { useSelector, useDispatch } from 'react-redux';
+import { getNftById } from '../../api/index';
+
 function Draw() {
-    const [walletModal, setWalletModal] = useState(false);
-    // const web3React = useWeb3React();
-    const { account, chainId, library } = useWeb3React()
-    const [openBox, setOpenBox] = useState(false);
     const blindState = useSelector(state => state.blindTrans);
     const dispatch = useDispatch();
-    console.log(6666, blindState);
-    // console.log(web3React);
+    const { account, chainId, library } = useWeb3React()
+    const [walletModal, setWalletModal] = useState(false);
+    const [pendingDraw, setPendingDraw] = useState(false);
+    const [sucDraw, setsucDraw] = useState(false);
+    const [cardItem, setCardItem] = useState(null);
+    const [nftContract, setNftContract] = useState(null);
 
     useEffect(() => {
+        const contract = getConstract(addr, abi, library, account);
+        setNftContract(contract);
+
         if (chainId && CHAIN_ID[chainId] !== SUPPORT_NET) {
-            alert('unsupport net');
+            dispatch({type: 'UPDATE_POPUPS', payload: {show: true, type: 'error', text: 'Unsupported Chain Id'}});
         }
-    }, [chainId]);
+    }, [chainId, account]);
+
+
+    useEffect(async () => {
+        if(blindState.status === 'finish') {
+            getNftById('/' + addr + '/' + blindState.tokenId).then(res => {
+                setPendingDraw(false);
+                setsucDraw(true);
+                setCardItem(res);
+            });
+        }
+    }, [blindState.status]);
 
     async function clickDraw() {
         if (account) {
-            const contract = getConstract(addr, abi, library, account);
-            const gas = await contract.estimateGas.createCollectible(tokenUrl, { from: account });
+            if(CHAIN_ID[chainId] !== SUPPORT_NET) return;
+            const gas = await nftContract.estimateGas.createCollectible(tokenUrl, { from: account });
             const safeGas = calculateGasMargin(gas);
-            contract.createCollectible(tokenUrl, { from: account, gasLimit: safeGas }).then(res => {
-                setOpenBox(true);
-                dispatch({ type: 'ADD_BLIND_TRANS', payload: {hash: res.hash, status: 'pending'} });
-                
-                // library.getTransaction(res.hash).then(trans => {
-                //     console.log('trans', trans);
-                // })
-
-                // library.getTransactionReceipt("0x926d89c6c94287b83e9c17163e4f878d6574590d0ac607dde012c3aecc31b283").then(trans => {
-                //     console.log('rece', trans);
-                // })
-
+            nftContract.createCollectible(tokenUrl, { from: account, gasLimit: safeGas }).then(res => {
+                dispatch({ type: 'UPDATE_BLIND_TRANS', payload: {hash: res.hash, status: 'pending', tokenId: ''} });
+                dispatch({type: 'UPDATE_POPUPS', payload: {
+                    show: true, 
+                    type: 'success', 
+                    text: 'Transaction has been sent', 
+                    link: 'https://rinkeby.etherscan.io/tx/' + res.hash,
+                    linkText: 'View on Etherscan'
+                }});
+                setPendingDraw(true);
             }).catch(err => {
-                console.log(2222, err)
+                dispatch({type: 'UPDATE_POPUPS', payload: {show: true, type: 'error', text: 'User denied transaction signature'}});
             });
 
         } else {
@@ -49,32 +68,13 @@ function Draw() {
         }
     }
 
-
-    // useEffect(async () => {
-    //     let wallet = new welletHandler();
-    //     let account = '';
-    //     await wallet.connectWeb3();
-
-    //     if (wallet.provider) {
-    //         account = await wallet.getUserInfo();
-    //         wallet.provider.on("chainChanged", (chainId) => {
-    //             console.log(chainId);
-    //         });
-
-    //         wallet.provider.on("accountsChanged", accounts => {
-    //             console.log(111, accounts);
-    //         });
-    //     }
-    //     setWelletInfo({ account, wallet: wallet });
-    // }, []);
-
     return (
         <div className={sty.draw}>
             <div className={cn(sty.boxWrap, 'flex')}>
                 <div className={cn(sty.left, 'tc')}>
                     {/* <img src={boxImg} alt="" /> */}
                     <div className='cubeOuter'>
-                        <div className={openBox ? "cube open" : 'cube'}>
+                        <div className={'cube'}>
                             <b className='front'></b>
                             <b className='back'></b>
                             <b className='top'></b>
@@ -113,6 +113,8 @@ function Draw() {
             </div>
 
             <ConnectModal visible={walletModal} onClose={() => setWalletModal(false)}></ConnectModal>
+            <DrawWait show={pendingDraw} onHide={() => {setPendingDraw(false)}}></DrawWait>
+            <DrawSuc show={sucDraw} onHide={() => {setsucDraw(false)}} card={cardItem}></DrawSuc>
         </div>
     );
 }

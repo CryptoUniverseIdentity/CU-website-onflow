@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useWeb3React } from '@web3-react/core';
 // import { updateBlockNumber } from '../../store/application/actions'
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 export default function Updater() {
+  const dispatch = useDispatch();
   const { library, chainId } = useWeb3React();
-//   const dispatch = useDispatch();
 
   const [state, setState] = useState({
     chainId,
@@ -19,7 +19,7 @@ export default function Updater() {
           if (typeof state.blockNumber !== 'number') return { chainId, blockNumber }
           return { chainId, blockNumber: Math.max(blockNumber, state.blockNumber) }
         }
-        return state
+        return state;
       })
     },
     [chainId, setState]
@@ -39,27 +39,22 @@ export default function Updater() {
     return () => {
       library.removeListener('block', blockNumberCallback)
     }
-  }, [chainId, library, blockNumberCallback])
+  }, [dispatch, chainId, library, blockNumberCallback])
 
   useEffect(() => {
-    // Update debounced value after delay
     const handler = setTimeout(() => {
         setState(state)
     }, 100)
 
-    // Cancel the timeout if value changes (also on delay change or unmount)
-    // This is how we prevent debounced value from updating if value is changed ...
-    // .. within the delay period. Timeout gets cleared and restarted.
     return () => {
       clearTimeout(handler)
     }
   }, [state])
 
   useEffect(() => {
-      console.log('2222222')
     if (!state.chainId || !state.blockNumber) return
-    // dispatch(updateBlockNumber({ chainId: debouncedState.chainId, blockNumber: debouncedState.blockNumber }))
-  }, [state.blockNumber, state.chainId])
+    dispatch({type: 'UPDATE_BLOCK_NUMBER', payload: {blockNumber: state.blockNumber}});
+  }, [dispatch, state.blockNumber, state.chainId])
 
   return null
 }

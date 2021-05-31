@@ -1,15 +1,19 @@
 
 const defaultState = {
-    hash: '',
-    status: '',
-    tokenId: ''
+    popups: {
+        show: false,
+        type: 'success',
+        text: '',
+        link: '',
+        linkText: ''
+    }
 };
 
 const reducer = (state = defaultState, action = {}) => {
     const { type, payload } = action;
     switch (type) {
-        case 'UPDATE_BLIND_TRANS':
-            return Object.assign({}, state, payload);
+        case 'UPDATE_POPUPS':
+            return {...state, popups: payload};
         default: return state;
     }
 };

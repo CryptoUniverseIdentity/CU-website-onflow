@@ -4,19 +4,20 @@ import {
     Route
 } from "react-router-dom";
 import Header from './components/common/Header';
-import Footer from './components/common/Footer';
 import Home from './pages/home';
 import Draw from './pages/draw';
 import Trans from './pages/trans';
 import Dapp from './components/common/Dapp';
 import CardDetail from './pages/card-detail';
 import My from './pages/my';
+import Popups from './components/common/Popups';
 
 function BaseRouter() {
     return (
         <div className="App">
             <Router>
                 <Header></Header>
+                <Popups></Popups>
                 <Switch>
                     <Dapp>
                         <Route exact path="/">
@@ -36,7 +37,6 @@ function BaseRouter() {
                         </Route>
                     </Dapp>
                 </Switch>
-                {/* <Footer></Footer> */}
             </Router>
         </div>
     );
