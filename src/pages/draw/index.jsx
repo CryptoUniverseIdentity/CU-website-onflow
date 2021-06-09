@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useWeb3React } from '@web3-react/core';
+import { parseUnits, formatUnits } from '@ethersproject/units';
 
 import ConnectModal from '../../components/common/ConnectModal';
 import DrawWait from '../../components/draw/DrawWait';
 import DrawSuc from '../../components/draw/DrawSuc';
+import { useAccountBalance } from '../../hooks/useAccountBalance';
 
 import sty from './index.module.scss';
 import cn from 'classnames';
@@ -23,6 +25,7 @@ function Draw() {
     const [sucDraw, setsucDraw] = useState(false);
     const [cardItem, setCardItem] = useState(null);
     const [nftContract, setNftContract] = useState(null);
+    // const balance = useAccountBalance();
 
     useEffect(() => {
         const contract = getConstract(addr, abi, library, account);
@@ -47,9 +50,11 @@ function Draw() {
     async function clickDraw() {
         if (account) {
             if(CHAIN_ID[chainId] !== SUPPORT_NET) return;
-            const gas = await nftContract.estimateGas.createCollectible(tokenUrl, { from: account });
+            const payFee = parseUnits('0.1');
+            const gas = await nftContract.estimateGas.mintCUIDCard(tokenUrl, { from: account, value: payFee });
             const safeGas = calculateGasMargin(gas);
-            nftContract.createCollectible(tokenUrl, { from: account, gasLimit: safeGas }).then(res => {
+            
+            nftContract.mintCUIDCard(tokenUrl, { from: account, gasLimit: safeGas, value: payFee }).then(res => {
                 dispatch({ type: 'UPDATE_BLIND_TRANS', payload: {hash: res.hash, status: 'pending', tokenId: ''} });
                 dispatch({type: 'UPDATE_POPUPS', payload: {
                     show: true, 
