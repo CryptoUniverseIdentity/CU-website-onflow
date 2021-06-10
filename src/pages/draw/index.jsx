@@ -28,12 +28,14 @@ function Draw() {
     // const balance = useAccountBalance();
 
     useEffect(() => {
-        const contract = getConstract(addr, abi, library, account);
-        setNftContract(contract);
-
         if (chainId && CHAIN_ID[chainId] !== SUPPORT_NET) {
             dispatch({type: 'UPDATE_POPUPS', payload: {show: true, type: 'error', text: 'Unsupported Chain Id'}});
+            return;
         }
+
+        if(!account) return;
+        const contract = getConstract(addr, abi, library, account);
+        setNftContract(contract);
     }, [chainId, account]);
 
 

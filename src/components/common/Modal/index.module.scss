@@ -1,3 +1,26 @@
-.modal {
-    
+.mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.45);
+    .box {
+        position: absolute;
+        left: 50%;
+        top: 45%;
+        transform: translate(-50%, -50%);
+        .closeIcon {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+            padding: 10px;
+            img {
+                display: block;
+                width: 20px;
+            }
+        }
+    }
 }

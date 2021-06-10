@@ -13,7 +13,7 @@ function DrawWait(props) {
     return (
         <Modal backdrop='static' onEntered={fadeIn} contentClassName='draw-wait-modal' show={props.show} onHide={() => { props.onHide() }} centered={true}>
             <div className={cn(sty.outer, 'flex flex-c')}>
-                <video id='draw-video' loop width='400' src="https://swarm-gateways.net/bzz:/72c554df40b915ccb21103984982439e91f2d17a9dac7c570a207dff9c7493f9/69024027fe7b83dd835bc34df4cbea4a.mp4"></video>
+                <video id='draw-video' loop width='400' src="https://swarm-gateways.net/bzz:/ae052c774cd9e1849eaa68f78ba973e621393e8ed9d7b947d109650998e5110c/2333_x264.mp4"></video>
             </div>
         </Modal>
     );
