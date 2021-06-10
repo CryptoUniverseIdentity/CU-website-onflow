@@ -14,6 +14,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { parseUnits, formatUnits } from '@ethersproject/units';
 import { useAccountBalance } from '../../hooks/useAccountBalance';
 // import { useSellCardNumber } from '../../hooks/useSellCardNumber';
+import squareLogo from '../../imgs/logo-alone.png';
 function Trans() {
     const web3 = useWeb3React();
     const { account, library, chainId } = useWeb3React();
@@ -41,10 +42,18 @@ function Trans() {
     async function buyCard() {
         if (account) {
             if(CHAIN_ID[chainId] !== SUPPORT_NET) return;
-            if(balance < 11) return;
+            if(balance < 10.5) return;
             const payFee = parseUnits('10');
-            nftContract.saleCUIDCard(tokenUrl, 0, 1, { from: account, gasLimit: '990000', value: payFee }).then(res => {
-                console.log(res);
+            nftContract.saleCUIDCard(tokenUrl, 0, 2, { from: account, gasLimit: '990000', value: payFee }).then(res => {
+                dispatch({
+                    type: 'UPDATE_POPUPS', 
+                    payload: {
+                        show: true, 
+                        type: 'success', 
+                        text: 'Transaction has been sent',
+                        link: 'https://rinkeby.etherscan.io/tx/' + res.hash,
+                        linkText: 'View on Etherscan'
+                    }});
             }).catch(err => {
                 dispatch({type: 'UPDATE_POPUPS', payload: {show: true, type: 'error', text: 'User denied transaction signature'}});
             });
@@ -60,7 +69,7 @@ function Trans() {
             <div className={cn(sty.box, 'flex flex-wrap')}>
                 <div className={sty.item}>
                     <div className={cn(sty.header, 'flex-m')}>
-                        <img className={sty.ower} src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=251289958,1860898046&fm=26&gp=0.jpg" alt="" />
+                        <img className={sty.ower} src={squareLogo} alt="" />
                         <div className='flex-1'>
                             {/* <div className={sty.text}>Created by</div>
                             <div className={sty.s}>Tran Mau</div> */}
@@ -81,7 +90,7 @@ function Trans() {
                     <div className={cn(sty.operaBox, 'flex')}>
                         {/* <button className={cn(sty.w, 'flex-1')}>DETAILS</button> */}
                         <button onClick={buyCard} className='flex-1'>
-                            {!account ? 'Connect Wallet' : (balance > 11) ? 'BUY' : 'Insufficient Balance'}
+                            {!account ? 'Connect Wallet' : (balance > 10.5) ? 'BUY' : 'Insufficient Balance'}
                         </button>
                     </div>
                 </div>

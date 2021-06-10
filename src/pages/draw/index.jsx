@@ -25,7 +25,7 @@ function Draw() {
     const [sucDraw, setsucDraw] = useState(false);
     const [cardItem, setCardItem] = useState(null);
     const [nftContract, setNftContract] = useState(null);
-    // const balance = useAccountBalance();
+    const balance = useAccountBalance();
 
     useEffect(() => {
         if (chainId && CHAIN_ID[chainId] !== SUPPORT_NET) {
@@ -45,6 +45,13 @@ function Draw() {
                 setPendingDraw(false);
                 setsucDraw(true);
                 setCardItem(res);
+            }).catch(err => {
+                setPendingDraw(false);
+                dispatch({type: 'UPDATE_POPUPS', payload: {
+                    show: true, 
+                    type: 'success', 
+                    text: 'Success! Go to the wallet to view the assets'
+                }});
             });
         }
     }, [blindState.status]);
@@ -52,6 +59,7 @@ function Draw() {
     async function clickDraw() {
         if (account) {
             if(CHAIN_ID[chainId] !== SUPPORT_NET) return;
+            if(balance < 0.2) return;
             const payFee = parseUnits('0.1');
             const gas = await nftContract.estimateGas.mintCUIDCard(tokenUrl, { from: account, value: payFee });
             const safeGas = calculateGasMargin(gas);
