@@ -173,19 +173,7 @@
 @media (max-width: 960px) {
     .home {
         .nav {
-            .actv {
-                position: relative;
-                img {
-                    width: 100%;
-                }
-                .launchBtn {
-                    position: absolute;
-                    bottom: 30px;
-                    font-size: 16px;
-                    padding-top: 8px;
-                    padding-bottom: 8px;
-                }
-            }
+            
             .outer {
                 width: 100%;
                 margin: 0 auto;
@@ -277,6 +265,19 @@
                             }
                         }
                     }
+                }
+            }
+            .actv {
+                position: relative;
+                img {
+                    width: 100%;
+                }
+                .launchBtn {
+                    position: absolute;
+                    bottom: 30px;
+                    font-size: 16px;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
                 }
             }
         }

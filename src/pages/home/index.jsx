@@ -31,10 +31,7 @@ function Home() {
     return (
         <div className={style.home}>
             <div className={style.nav}>
-                <div className={style.actv}>
-                    <img src={actvImg} alt="" />
-                    <button onClick={goActivity} className={cn(style.launchBtn)}>Contest</button>
-                </div>
+                
                 <div className={cn(style.outer)}>
                     <div className={style.titleOne}>{t("home.title")}</div>
                     <div className={style.titleTwo}>CRYPTO UNIVERSE(CU)</div>
@@ -107,6 +104,10 @@ function Home() {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className={style.actv}>
+                    <img src={actvImg} alt="" />
+                    <button onClick={goActivity} className={cn(style.launchBtn)}>Contest</button>
                 </div>
             </div>
             {/* <div className={style.card}>
