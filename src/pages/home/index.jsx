@@ -6,6 +6,7 @@ import cn from 'classnames';
 import { useHistory } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import Footer from '../../components/common/Footer';
+import actvImg from '../../imgs/home/actv-bg.png';
 
 function Home() {
     let { t } = useTranslation();
@@ -30,6 +31,10 @@ function Home() {
     return (
         <div className={style.home}>
             <div className={style.nav}>
+                <div className={style.actv}>
+                    <img src={actvImg} alt="" />
+                    <button onClick={goActivity} className={cn(style.launchBtn)}>Contest</button>
+                </div>
                 <div className={cn(style.outer)}>
                     <div className={style.titleOne}>{t("home.title")}</div>
                     <div className={style.titleTwo}>CRYPTO UNIVERSE(CU)</div>
@@ -44,7 +49,6 @@ function Home() {
                     <div className={style.titleThree}>CRYPTO UNIVERSE(CU) IS THE NFT BASED ON BLOCKCHAIN DID WITH</div>
                     <div className={style.titleThree}>DEFI+GACHA+UNIQUE CARD COLLECTION」</div>
                     <button onClick={goDraw} className={style.launchBtn}>Get started</button>
-                    <button onClick={goActivity} style={{marginLeft: '15px'}} className={cn(style.launchBtn)}>Contest</button>
 
                     <div className={cn(style.cardShow, 'flex-m')}>
                         <div className={cn(style.cardItem, 'flex flex-1')}>
