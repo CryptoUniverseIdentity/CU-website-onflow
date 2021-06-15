@@ -23,6 +23,10 @@ function Home() {
         history.push("/carddetail");
     }
 
+    function goActivity() {
+        window.open('https://quanqiu.group/');
+    }
+
     return (
         <div className={style.home}>
             <div className={style.nav}>
@@ -40,6 +44,7 @@ function Home() {
                     <div className={style.titleThree}>CRYPTO UNIVERSE(CU) IS THE NFT BASED ON BLOCKCHAIN DID WITH</div>
                     <div className={style.titleThree}>DEFI+GACHA+UNIQUE CARD COLLECTION」</div>
                     <button onClick={goDraw} className={style.launchBtn}>Get started</button>
+                    <button onClick={goActivity} style={{marginLeft: '15px'}} className={cn(style.launchBtn)}>Contest</button>
 
                     <div className={cn(style.cardShow, 'flex-m')}>
                         <div className={cn(style.cardItem, 'flex flex-1')}>
