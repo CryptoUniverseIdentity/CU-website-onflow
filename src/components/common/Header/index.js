@@ -71,17 +71,8 @@ function Header() {
                 <Link className={cn({ [sty.active]: pathname === '/', [sty.menuItem]: true })} to="/">{t('header.home')}</Link>
                 <Link className={cn({ [sty.active]: pathname === '/draw', [sty.menuItem]: true })} to="/draw">{t('header.draw')}</Link>
                 <Link className={cn({ [sty.active]: pathname === '/trans', [sty.menuItem]: true })} to="/trans">{t('header.trans')}</Link>
+                <Link className={cn({ [sty.active]: pathname === '/mining', [sty.menuItem]: true })} to="/mining">MINING</Link>
                 <Link className={cn({ [sty.active]: pathname === '/my', [sty.menuItem]: true })} to="/my">{t('header.my')}</Link>
-                {/* <Dropdown onSelect={changeLanguage} className={sty.dropUl}>
-                    <Dropdown.Toggle as={CustomToggle}>
-                        {i18n.language === 'zh' ? '简体中文' : 'English'}
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu as={CustomMenu}>
-                        <Dropdown.Item eventKey="zh">简体中文</Dropdown.Item>
-                        <Dropdown.Item eventKey="en">English</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown> */}
             </div>
             <div onClick={e => toggleMenu(e, true)} className={sty.mobileMenu}>
                 <img className={sty.menuIcon} src={menuIcon} alt="" />

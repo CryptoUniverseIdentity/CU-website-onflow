@@ -1,0 +1,128 @@
+.mining {
+    min-height: 100%;
+    background-color: #000;
+    .wrap {
+        width: 1200px;
+        margin: 0 auto;
+        .header {
+            padding-top: 30px;
+            .tabs {
+                padding: 3px;
+                border: 1px solid #2a2634;
+                border-radius: 10px;
+                width: 500px;
+                .tab {
+                    width: 50%;
+                    font-size: 18px;
+                    color: #fff;
+                    line-height: 40px;
+                    cursor: pointer;
+                    background: transparent;
+                }
+                .active {
+                    transition: background 0.15s linear;
+                    background: #2a2634;
+                    color: #17ffff;
+                    border-radius: 10px;
+                }
+            }
+            .account {
+                background: #2a2634;
+                border-radius: 15px;
+                width: 300px;
+                height: 45px;
+                padding: 3px;
+                .balance {
+                    color: #a6adb1;
+                    padding: 0 15px;
+                    .icon {
+                        margin-right: 5px;
+                    }
+                }
+                .useAddr {
+                    background-color: #000;
+                    border-radius: 15px;
+                    height: 100%;
+                    padding: 0 15px;
+                    color: #fff;
+                }
+            }
+        }
+        .nav {
+            margin-top: 50px;
+            background: #2a2634;
+            border-radius: 10px;
+            padding: 10px 30px;
+            color: #fff;
+            .label {
+                font-size: 22px;
+                font-weight: bold;
+                margin-bottom: 15px;
+                span {
+                    margin-right: 120px;
+                }
+            }
+            .title {
+                color: #fdff00;
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            .desc {
+                font-size: 14px;
+                color: #fff;
+                line-height: 2;
+            }
+        }
+        .block {
+            margin-top: 30px;
+            padding-bottom: 50px;
+            .mineItem {
+                background: #2a2634;
+                border-radius: 10px;
+                padding: 30px;
+                color: #dce1ea;
+                .logo {
+                    text-align: center;
+                    margin-bottom: 10px;
+                    img {
+                        width: 80px;
+                    }
+                }
+                .name {
+                    font-size: 22px;
+                    font-weight: bold;
+                    color: #fff;
+                    text-align: center;
+                    margin-bottom: 50px;
+                }
+                .box {
+                    border-top: 1px solid #787885;
+                    border-bottom: 1px solid #787885;
+                }
+                .row {
+                    padding: 12px 0;
+                    font-size: 16px;
+                    .s {
+                        color: #fdff00;
+                    }
+                }
+
+                .btnGroup {
+                    button {
+                        background: #FDFF00;
+                        color: #000;
+                        border-radius: 8px;
+                        font-size: 16px;
+                        line-height: 46px;
+                    }
+                    .mmr {
+                        margin: 0 20px;
+                    }
+                }
+            }
+            .imr {
+                margin: 0 30px;
+            }
+        }
+    }
+}

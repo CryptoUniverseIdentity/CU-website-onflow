@@ -11,6 +11,7 @@ import Dapp from './components/common/Dapp';
 import CardDetail from './pages/card-detail';
 import My from './pages/my';
 import Popups from './components/common/Popups';
+import Mining from './pages/mining';
 
 function BaseRouter() {
     return (
@@ -28,6 +29,9 @@ function BaseRouter() {
                         </Route>
                         <Route exact path="/trans">
                             <Trans></Trans>
+                        </Route>
+                        <Route exact path="/mining">
+                            <Mining></Mining>
                         </Route>
                         <Route exact path="/carddetail">
                             <CardDetail></CardDetail>
