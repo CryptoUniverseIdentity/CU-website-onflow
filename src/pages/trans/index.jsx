@@ -44,7 +44,7 @@ function Trans() {
             if(CHAIN_ID[chainId] !== SUPPORT_NET) return;
             if(balance < 10.5) return;
             const payFee = parseUnits('10');
-            nftContract.saleCUIDCard(tokenUrl, 0, 2, { from: account, gasLimit: '990000', value: payFee }).then(res => {
+            nftContract.saleCUIDCard(0, 2, { from: account, gasLimit: '990000', value: payFee }).then(res => {
                 dispatch({
                     type: 'UPDATE_POPUPS', 
                     payload: {
@@ -75,7 +75,7 @@ function Trans() {
                             <div className={sty.s}>Tran Mau</div> */}
                         </div>
                         <div>
-                            <div className={sty.id}>#0250</div>
+                            {/* <div className={sty.id}>#0250</div> */}
                             <div className={sty.o}>king </div>
                         </div>
                     </div>

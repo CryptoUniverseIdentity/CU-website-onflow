@@ -61,10 +61,10 @@ function Draw() {
             if(CHAIN_ID[chainId] !== SUPPORT_NET) return;
             if(balance < 0.2) return;
             const payFee = parseUnits('0.1');
-            const gas = await nftContract.estimateGas.mintCUIDCard(tokenUrl, { from: account, value: payFee });
+            const gas = await nftContract.estimateGas.mintCUIDCard({ from: account, value: payFee });
             const safeGas = calculateGasMargin(gas);
             
-            nftContract.mintCUIDCard(tokenUrl, { from: account, gasLimit: safeGas, value: payFee }).then(res => {
+            nftContract.mintCUIDCard({ from: account, gasLimit: safeGas, value: payFee }).then(res => {
                 dispatch({ type: 'UPDATE_BLIND_TRANS', payload: {hash: res.hash, status: 'pending', tokenId: ''} });
                 dispatch({type: 'UPDATE_POPUPS', payload: {
                     show: true, 
