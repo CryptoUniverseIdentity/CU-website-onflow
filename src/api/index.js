@@ -12,3 +12,9 @@ export function getNftById(url) {
         url: 'https://rinkeby-api.opensea.io/api/v1/asset' + url
     })
 }
+
+export function getNftInfo(url) {
+    return axios.request({
+        url: url
+    })
+}

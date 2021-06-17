@@ -11,10 +11,10 @@ import { useAccountBalance } from '../../hooks/useAccountBalance';
 import sty from './index.module.scss';
 import cn from 'classnames';
 
-import { abi, addr, tokenUrl } from '../../constant/contract';
+import { abi, addr } from '../../constant/contract';
 import { SUPPORT_NET, CHAIN_ID } from '../../constant';
 import { getConstract, calculateGasMargin } from '../../utils/index';
-import { getNftById } from '../../api/index';
+import { getNftById, getNftInfo } from '../../api/index';
 
 function Draw() {
     const blindState = useSelector(state => state.blindTrans);
@@ -41,7 +41,10 @@ function Draw() {
 
     useEffect(async () => {
         if(blindState.status === 'finish') {
-            getNftById('/' + addr + '/' + blindState.tokenId).then(res => {
+            nftContract.callStatic.cucards(blindState.tokenId).then(res => {
+                return getNftInfo(res.metadata);
+            }).then(res => {
+                console.log(11111, res);
                 setPendingDraw(false);
                 setsucDraw(true);
                 setCardItem(res);

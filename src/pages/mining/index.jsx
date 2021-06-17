@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
+import { useAccountBalance } from '../../hooks/useAccountBalance';
 import sty from './index.module.scss';
 import cn from 'classnames';
 
@@ -8,6 +9,7 @@ import mineCuIcon from '../../imgs/mining/mine-cu.png';
 
 function Mining() {
     const { account, chainId, library } = useWeb3React();
+    const balance = useAccountBalance();
     const [tab, setTab] = useState(0);
 
     function shortenAddress(address) {
@@ -23,15 +25,19 @@ function Mining() {
                         <div onClick={() => setTab(0)} className={cn(sty.tab, tab === 0 ? sty.active : '')}>Activated Cards</div>
                         <div onClick={() => setTab(1)} className={cn(sty.tab, tab === 1 ? sty.active : '')}>Free Cards</div>
                     </div>
-                    <div className={cn(sty.account, 'flex-m')}>
-                        <div className={cn(sty.balance, 'flex-m')}>
-                            <img className={sty.icon} src={balanceIcon} alt="" />
-                            <span>12ETH</span>
-                        </div>
-                        <div className={cn(sty.useAddr, 'flex-1 flex-m flex-c')}>
-                            {shortenAddress(account)}
-                        </div>
-                    </div>
+                    {
+                        account && (
+                            <div className={cn(sty.account, 'flex-m')}>
+                                <div className={cn(sty.balance, 'flex-m')}>
+                                    <img className={sty.icon} src={balanceIcon} alt="" />
+                                    <span>{balance}ETH</span>
+                                </div>
+                                <div className={cn(sty.useAddr, 'flex-1 flex-m flex-c')}>
+                                    {shortenAddress(account)}
+                                </div>
+                            </div>
+                        )
+                    }
                 </div>
                 <div className={sty.nav}>
                     <div className={sty.label}>

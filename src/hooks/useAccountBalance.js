@@ -9,7 +9,7 @@ export function useAccountBalance() {
     useEffect(() => {
         if(!library) return;
         library.getBalance(account).then(res => {
-            setNum(formatUnits(res));
+            setNum(Number(formatUnits(res)).toFixed(2));
         });
     }, [library, chainId, account]);
     

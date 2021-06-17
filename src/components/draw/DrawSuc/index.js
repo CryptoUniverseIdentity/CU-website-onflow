@@ -11,7 +11,7 @@ function DrawWait(props) {
             <div className={cn(sty.outer, 'flex flex-c')}>
                 <div className={sty.cardBox}>
                     <div className={cn(sty.cardImg, 'flex-m flex-c')}>
-                        <img src={(props.card && props.card.image_url) || defaultCard} alt="" />
+                        <img src={(props.card && props.card.image) || defaultCard} alt="" />
                     </div>
 
                     <div>

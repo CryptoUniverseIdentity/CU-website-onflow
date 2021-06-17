@@ -126,3 +126,82 @@
         }
     }
 }
+
+@media (max-width: 960px) {
+    .mining {
+        .wrap {
+            width: 100%;
+            padding: 0 15px;
+            .header {
+                display: block;
+                .tabs {
+                    width: 100%;
+                    .tab {
+                        width: 50%;
+                        font-size: 15px;
+                        line-height: 32px;
+                    }
+                }
+                .account {
+                   display: none;
+                }
+            }
+            .nav {
+                margin-top: 30px;
+                padding: 10px 15px;
+                .label {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                    span {
+                        margin-right: 50px;
+                    }
+                }
+                .title {
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+                .desc {
+                    font-size: 12px;
+                }
+            }
+            .block {
+               display: block;
+                .mineItem {
+                    padding: 15px;
+                    width: 100%;
+                    margin-bottom: 15px;
+                    .logo {
+                        img {
+                            width: 50px;
+                        }
+                    }
+                    .name {
+                        font-size: 18px;
+                        margin-bottom: 30px;
+                    }
+                    .box {
+                        border-top: 1px solid #787885;
+                        border-bottom: 1px solid #787885;
+                    }
+                    .row {
+                        padding: 10px 0;
+                        font-size: 14px;
+                    }
+    
+                    .btnGroup {
+                        button {
+                            font-size: 14px;
+                            line-height: 40px;
+                        }
+                        .mmr {
+                            margin: 0 10px;
+                        }
+                    }
+                }
+                .imr {
+                    margin: 0 0 15px;
+                }
+            }
+        }
+    }
+}
