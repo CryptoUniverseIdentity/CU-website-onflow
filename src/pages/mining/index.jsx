@@ -8,7 +8,7 @@ import balanceIcon from '../../imgs/mining/balance-icon.png';
 import mineCuIcon from '../../imgs/mining/mine-cu.png';
 
 function Mining() {
-    const { account, chainId, library } = useWeb3React();
+    const { account } = useWeb3React();
     const balance = useAccountBalance();
     const [tab, setTab] = useState(0);
 

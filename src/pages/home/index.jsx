@@ -1,27 +1,19 @@
-import style from './index.module.scss';
-import cardImgOne from '../../imgs/card-4.jpg';
-import cardImgTwo from '../../imgs/card-3.jpg';
-import cardImgThree from '../../imgs/card-5.jpg';
-import cn from 'classnames';
 import { useHistory } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
+import style from './index.module.scss';
+import cn from 'classnames';
+
 import Footer from '../../components/common/Footer';
 import actvImg from '../../imgs/home/actv-bg.png';
 
+import cardImgOne from '../../imgs/card-4.jpg';
+import cardImgTwo from '../../imgs/card-3.jpg';
+import cardImgThree from '../../imgs/card-5.jpg';
+
 function Home() {
-    let { t } = useTranslation();
     let history = useHistory();
 
-    function goDraw() {
-        history.push("/draw");
-    }
-
-    function goTrans() {
-        history.push("/trans");
-    }
-
-    function goCardDetail() {
-        history.push("/carddetail");
+    function goPage(url) {
+        history.push(url);
     }
 
     function goActivity() {
@@ -33,19 +25,19 @@ function Home() {
             <div className={style.nav}>
                 
                 <div className={cn(style.outer)}>
-                    <div className={style.titleOne}>{t("home.title")}</div>
+                    <div className={style.titleOne}>Welcome to</div>
                     <div className={style.titleTwo}>CRYPTO UNIVERSE(CU)</div>
                     <div className={cn(style.keyword, 'flex-m')}>
                         <div>NFT</div>
-                        <div>{t("home.keyword_2")}</div>
-                        <div>{t("home.keyword_3")}</div>
-                        <div>{t("home.keyword_4")}</div>
-                        <div>{t("home.keyword_5")}</div>
-                        <div>{t("home.keyword_6")}</div>
+                        <div>DID</div>
+                        <div>Governance</div>
+                        <div>GameFi</div>
+                        <div>Collection</div>
+                        <div>Metaverse Infrastructure</div>
                     </div>
                     <div className={style.titleThree}>CRYPTO UNIVERSE(CU) IS THE NFT BASED ON BLOCKCHAIN DID WITH</div>
                     <div className={style.titleThree}>DEFI+GACHA+UNIQUE CARD COLLECTION」</div>
-                    <button onClick={goDraw} className={style.launchBtn}>Get started</button>
+                    <button onClick={() => goPage('/draw')} className={style.launchBtn}>Get started</button>
 
                     <div className={cn(style.cardShow, 'flex-m')}>
                         <div className={cn(style.cardItem, 'flex flex-1')}>
