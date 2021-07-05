@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import sty from './index.module.scss';
-import { useTranslation, Trans, Translation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import logoImg from '../../../imgs/logo.png';
-import Dropdown from 'react-bootstrap/Dropdown';
 import menuIcon from "../../../imgs/menu-icon.png";
 import closeIcon from "../../../imgs/close.png";
 
