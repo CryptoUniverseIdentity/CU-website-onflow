@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { Web3ReactProvider } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
 import Web3ReactManager from '../Web3ReactManager';

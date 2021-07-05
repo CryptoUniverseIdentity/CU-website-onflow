@@ -1,6 +1,6 @@
 import { Contract } from '@ethersproject/contracts';
 import { BigNumber } from '@ethersproject/bignumber';
-import { OpenSeaPort, Network } from 'opensea-js';
+// import { OpenSeaPort, Network } from 'opensea-js';
 import { SUPPORT_NET } from '../constant';
 
 export function getConstract(addr, abi, library, account) {
@@ -14,11 +14,11 @@ export function getConstract(addr, abi, library, account) {
     return new Contract(addr, abi, provider);
 }
 
-export function getOpenSea(provider) {
-    return new OpenSeaPort(provider, {
-        networkName: SUPPORT_NET === 'Main' ? Network.Main : Network.Rinkeby
-    })
-}
+// export function getOpenSea(provider) {
+//     return new OpenSeaPort(provider, {
+//         networkName: SUPPORT_NET === 'Main' ? Network.Main : Network.Rinkeby
+//     })
+// }
 
 //add 20%
 export function calculateGasMargin(value) {

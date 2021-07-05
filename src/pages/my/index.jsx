@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import sty from './index.module.scss';
 import cn from 'classnames';
-import cardImg from '../../imgs/card-2.png';
-import { useState } from 'react';
+
 import cardImgOne from '../../imgs/card-4.jpg';
 import cardImgTwo from '../../imgs/card-3.jpg';
 import cardImgThree from '../../imgs/card-5.jpg';
